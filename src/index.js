@@ -9,7 +9,6 @@ import AuthRouter from './routers/AuthRouter.js';
 import path from 'path';
 import * as url from 'url';
 
-dotenv.config({ path: './.env' });
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const app = express();
