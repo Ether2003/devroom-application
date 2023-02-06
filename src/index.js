@@ -39,7 +39,7 @@ mongoose.connect("mongodb+srv://admin:admin@cluster0.andmxqc.mongodb.net/?retryW
     .then((connection) => {
         app.listen(process.env.PORT || 3000, () => {
             console.log('database connection successfull');
-            console.log(`listening @ http://localhost:${process.env.PORT || 3333}`);
+            console.log(`listening @ http://localhost:${process.env.PORT}`);
         });
     })
     .catch((error) => {
