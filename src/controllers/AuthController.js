@@ -67,4 +67,15 @@ const authenticateUser = async (request, response) => {
     }
 }
 
-export { registerUser, authenticateUser }
+// this controller destroyed the token cookie
+const logoutUser = (request, response) => {
+    try {
+        // truely an EJS moment
+        response.clearCookie("token");
+        return response.redirect('/views/login');
+    } catch (error) {
+        response.render('500');
+    }
+}
+
+export { registerUser, authenticateUser, logoutUser }

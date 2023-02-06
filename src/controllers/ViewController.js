@@ -6,6 +6,10 @@ import PostService from '../services/PostService.js';
 // this controller renders a login page
 const renderLoginPage = async (request, response) => {
     try {
+        if (request.cookies.token) {
+            return response.redirect('/views/posts');
+        }
+
         response.render('login');
     } catch (error) {
         console.log(error);
