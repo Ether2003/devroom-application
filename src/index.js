@@ -2,7 +2,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
-import dotenv from 'dotenv';
 import ViewRouter from './routers/ViewRouter.js';
 import PostRouter from './routers/PostRouter.js'
 import AuthRouter from './routers/AuthRouter.js';
@@ -24,6 +23,8 @@ app.use(ViewRouter);
 app.use(PostRouter);
 app.use(AuthRouter);
 
+const PORT = process.env.PORT || 3333;
+
 // hello, world 👋
 app.get('/', (request, response) => {
     response.redirect('/views/login');
@@ -36,9 +37,9 @@ mongoose.connect("mongodb+srv://admin:admin@cluster0.andmxqc.mongodb.net/?retryW
     useUnifiedTopology: true
 })
     .then((connection) => {
-        app.listen(process.env.PORT || 3000, () => {
+        app.listen(PORT, () => {
             console.log('database connection successfull');
-            console.log(`listening @ http://localhost:${process.env.PORT}`);
+            console.log(`listening @ http://localhost:${PORT}`);
         });
     })
     .catch((error) => {
