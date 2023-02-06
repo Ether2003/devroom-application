@@ -3,16 +3,21 @@
   "private": true,
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Faraz Patankar",
+  "author": "me",
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/index.ts",
+    "dev": "nodemon src/index.js",
     "build": "tsc",
     "start": "node src/index.js"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
     "express": "^4.17.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.13.15"
   },
   "devDependencies": {

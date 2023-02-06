@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+</head>
+<body>
+    <div>
+        <a href="/views/posts">feed</a>
+    </div>
+    <div>
+        <%if (post.message) {%>
+            <p><%=post.message%></p>
+        <%} else {%>
+            <h1><%= post.title %></h1>
+            <p><%= post.body %></p>
+        <%}%>
+    </div>
+
+    <div style="margin-top: 10rem;">
+        <h2>read more posts</h2>
+        <% posts.forEach((post) => { %>
+            <div>
+                <a href="/views/posts/<%= post._id %>" style="text-decoration: none; color: black;">
+                    <h3><%= post.title %></h3>
+                </a>    
+            </div>
+        <% }) %>        
+    </div>
+</body>
+</html>

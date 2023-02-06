@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            width: 250px;
+        }
+
+        .form-container input[type="submit"] {
+            margin-top: 1rem;
+        }
+
+        .form-container a {
+            margin-top: 1rem;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <div class="center">
+            <form class="form-container" action="/auth/login" method="POST">
+                <label>Email</label>
+                <input id="credentials-email-id" type="text" name="email">
+                <label>Password</label>
+                <input id="credentials-password-id" type="password" name="password">
+                <input type="submit" value="LOGIN">
+                <a href="/views/register">Register</a>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
