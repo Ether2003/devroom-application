@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 3333;
 
 // hello, world 👋
 app.get('/', (request, response) => {
-    response.json({ message: 'hello, world!' })
+    response.redirect('/views/login');
 });
 
 // database connection & open port 🐸
