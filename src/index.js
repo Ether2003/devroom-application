@@ -1,27 +1,27 @@
 // import libraries, middleware, and routers
 import express from 'express';
 import mongoose from 'mongoose';
-// import cookieParser from 'cookie-parser';
-// import ViewRouter from './routers/ViewRouter.js';
-// import PostRouter from './routers/PostRouter.js'
-// import AuthRouter from './routers/AuthRouter.js';
-// import path from 'path';
-// import * as url from 'url';
+import cookieParser from 'cookie-parser';
+import ViewRouter from './routers/ViewRouter.js';
+import PostRouter from './routers/PostRouter.js'
+import AuthRouter from './routers/AuthRouter.js';
+import path from 'path';
+import * as url from 'url';
 
-// const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const app = express();
 
 // initialize middleware & routers
-// app.set('view engine', 'ejs');
-// console.log(path.join(__dirname, '/views'))
-// app.set('views', path.join(__dirname, '/views'));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use(cookieParser());
-// app.use(ViewRouter);
-// app.use(PostRouter);
-// app.use(AuthRouter);
+app.set('view engine', 'ejs');
+console.log(path.join(__dirname, '/views'))
+app.set('views', path.join(__dirname, '/views'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(ViewRouter);
+app.use(PostRouter);
+app.use(AuthRouter);
 
 const PORT = process.env.PORT || 3333;
 
