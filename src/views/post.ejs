@@ -1,33 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inconsolata', monospace;
+        }
+
+        .create-form input[type="submit"] {
+            padding: .4rem;
+            background-color: rgb(66, 237, 69);
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            margin-left: 4rem;
+            margin-right: 4rem;
+            text-align: center;
+            background-color: lavender;
+        }
+
+        .post-container {
+            border: 1px solid black;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding: 4px;
+        }
+
+        .logout-button {
+            padding: .4rem;
+            background-color: rgb(66, 66, 237);
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .main-post-container {
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+        }
+
+        .button-container a {
+            margin-left: 1rem;
+            padding: .3rem;
+            background-color: rgb(66, 66, 237);
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
 </head>
+
 <body>
-    <div>
-        <a href="/views/posts">feed</a>
-    </div>
-    <div>
-        <%if (post.message) {%>
-            <p><%=post.message%></p>
-        <%} else {%>
-            <h1><%= post.title %></h1>
-            <p><%= post.body %></p>
-        <%}%>
+    <div class="button-container">
+        <form action="/auth/logout" method="POST">
+            <input class="logout-button" type="submit" value="LOGOUT" />
+        </form>
+        <a href="/views/posts">FEED</a>
     </div>
 
-    <div style="margin-top: 10rem;">
-        <h2>read more posts</h2>
-        <% posts.forEach((post) => { %>
-            <div>
-                <a href="/views/posts/<%= post._id %>" style="text-decoration: none; color: black;">
-                    <h3><%= post.title %></h3>
-                </a>    
-            </div>
-        <% }) %>        
+    <div class="main-post-container">
+        <%if (post.message) {%>
+            <p>
+                <%=post.message%>
+            </p>
+            <%} else {%>
+                <h1>
+                    <%= post.title %>
+                </h1>
+                <p>
+                    <%= post.body %>
+                </p>
+                <%}%>
     </div>
+
+    <main>
+        <div style="margin-top: 10rem;">
+            <h2>read more posts</h2>
+            <% posts.forEach((post)=> { %>
+                <div class="post-container">
+                    <a href="/views/posts/<%= post._id %>" style="text-decoration: none; color: black;">
+                        <h3>
+                            <%= post.title %>
+                        </h3>
+                    </a>
+                </div>
+                <% }) %>
+        </div>
+
+    </main>
 </body>
+
 </html>
