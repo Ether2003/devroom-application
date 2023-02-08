@@ -9,7 +9,6 @@ import path from 'path';
 import * as url from 'url';
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
-
 const app = express();
 
 // initialize middleware & routers
@@ -32,7 +31,7 @@ app.get('/', (request, response) => {
 
 // database connection & open port 🐸
 mongoose.set('strictQuery', false);
-mongoose.connect("mongodb+srv://admin:admin@cluster0.andmxqc.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGOOSE_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
